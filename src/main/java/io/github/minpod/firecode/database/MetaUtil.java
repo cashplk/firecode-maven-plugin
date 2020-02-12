@@ -2,12 +2,7 @@ package io.github.minpod.firecode.database;
 
 import io.github.minpod.firecode.code.StringUtils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Date;
 import java.util.Map;
 
@@ -68,10 +63,9 @@ public class MetaUtil {
     private static Connection getConnection(String url, String user, String pass) {
         Connection conn = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+//            Class.forName("com.mysql.jdbc.Driver");
+
             conn = DriverManager.getConnection(url, user, pass);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
