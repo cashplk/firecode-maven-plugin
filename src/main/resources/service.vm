@@ -1,14 +1,12 @@
 package ${base}#if("${module}"!="").${module}#end.service;
 
-import com.youzan.api.common.response.PlainResult;
-import com.youzan.api.common.response.PaginatorResult;
 
-import ${base}#if("${module}"!="").${module}#end.model.param.${clazzName}CreateParam;
-import ${base}#if("${module}"!="").${module}#end.model.param.${clazzName}UpdateParam;
-import ${base}#if("${module}"!="").${module}#end.model.query.${clazzName}GetQuery;
-import ${base}#if("${module}"!="").${module}#end.model.query.${clazzName}SearchQuery;
+import ${base}#if("${module}"!="").${module}#end.model.param.Create${clazzName}Param;;
+import ${base}#if("${module}"!="").${module}#end.model.param.Update${clazzName}Param;
+import ${base}#if("${module}"!="").${module}#end.model.query.${clazzName}Query;
 import ${base}#if("${module}"!="").${module}#end.model.dto.${clazzName}DTO;
-
+import ${base}#if("${module}"!="").${module}#end.model.PlainResult;
+import ${base}#if("${module}"!="").${module}#end.model.ListResult;
 
 /**
 * Created by ${author}
@@ -17,38 +15,37 @@ import ${base}#if("${module}"!="").${module}#end.model.dto.${clazzName}DTO;
 */
 public interface ${clazzName}Service {
 
-
 /**
 * 创建
-* @param ${javaName}CreateParam
+* @param create${clazzName}Param
 * @return
 */
 PlainResult
-<Long> create${clazzName}(${clazzName}CreateParam ${javaName}CreateParam);
+<Long> create${clazzName}(Create${clazzName}Param create${clazzName}Param);
 
     /**
     * 查询
     *
-    * @param ${javaName}GetQuery
+    * @param ${javaName}Query
     * @return
     */
     PlainResult
-    <${clazzName}DTO> get${clazzName}(${clazzName}GetQuery ${javaName}GetQuery);
+    <${clazzName}DTO> get${clazzName}(${clazzName}Query ${javaName}Query);
 
         /**
         * 分页查询 最大200，默认20
         *
-        * @param ${javaName}SearchQuery
+        * @param ${javaName}Query
         * @return
         */
-        PaginatorResult
-        <${clazzName}DTO> search${clazzName}WithPage(${clazzName}SearchQuery ${javaName}SearchQuery);
+        ListResult
+        <${clazzName}DTO> list(${clazzName}Query ${javaName}Query);
 
             /**
             * 更新
-            * @param ${javaName}UpdateParam
+            * @param update${clazzName}Param
             * @return
             */
             PlainResult
-            <Integer> update${clazzName}(${clazzName}UpdateParam ${javaName}UpdateParam);
+            <Integer> update${clazzName}(Update${clazzName}Param update${clazzName}Param);
                 }

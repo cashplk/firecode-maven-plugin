@@ -3,7 +3,6 @@ package com.youzan.beauty.util;
 import io.github.minpod.firecode.FireCodeUtils;
 import io.github.minpod.firecode.database.MetaUtil;
 import io.github.minpod.firecode.database.Table;
-
 import org.junit.Test;
 
 
@@ -14,7 +13,7 @@ import org.junit.Test;
  */
 public class FireCodeUtilsTest {
     
-    private static Table table = MetaUtil.getMeta("jdbc:mysql://127.0.0.1:3306/dsp?useSSL=false", "root", "mingle", "ad_idea", "AdIdea", "adIdea");
+    private static Table table = MetaUtil.getMeta("jdbc:mysql://127.0.0.1:3306/sso?useSSL=false", "root", "13121312", "account", "Account", "account");
     
     private static String basePackage = "com.youzan.mei.demo";
     
@@ -30,22 +29,28 @@ public class FireCodeUtilsTest {
     
     @Test
     public void makeDOTest() {
-        String file = FireCodeUtils.makeDO(table, author, module, basePackage, "");
+        String file = FireCodeUtils.makeDO(table, author, module, basePackage, basePackage.replaceAll("\\.", "/"));
         System.out.println(file);
     }
-    
+
     @Test
     public void makeManager() throws Exception {
         String file = FireCodeUtils.makeManager(table, author, module, basePackage, basePackage.replaceAll("\\.", "/"));
         System.out.println(file);
     }
-    
+
+    @Test
+    public void makeManagerImpl() throws Exception {
+        String file = FireCodeUtils.makeManagerImpl(table, author, module, basePackage, basePackage.replaceAll("\\.", "/"));
+        System.out.println(file);
+    }
+
     @Test
     public void makeTest() {
         String file = FireCodeUtils.makeTest(table, author, module, basePackage, basePackage.replaceAll("\\.", "/"));
         System.out.println(file);
     }
-    
+
     @Test
     public void makeService() {
         String file = FireCodeUtils.makeService(table, author, module, basePackage, basePackage.replaceAll("\\.", "/"));
@@ -69,16 +74,35 @@ public class FireCodeUtilsTest {
         String file = FireCodeUtils.makeCreate(table, author, module, basePackage, basePackage.replaceAll("\\.", "/"));
         System.out.println(file);
     }
-    
+
     @Test
     public void makeUpdateTest() {
         String file = FireCodeUtils.makeUpdate(table, author, module, basePackage, basePackage.replaceAll("\\.", "/"));
         System.out.println(file);
     }
-    
+
+    @Test
+    public void makeQueryTest() {
+        String file = FireCodeUtils.makeQuery(table, author, module, basePackage, basePackage.replaceAll("\\.", "/"));
+        System.out.println(file);
+    }
+
     @Test
     public void makeRespTest() {
         String file = FireCodeUtils.makeResp(table, author, module, basePackage, basePackage.replaceAll("\\.", "/"));
         System.out.println(file);
     }
+
+    @Test
+    public void makeMapperTest() {
+        String file = FireCodeUtils.makeMapper(table, author, module, basePackage, basePackage.replaceAll("\\.", "/"));
+        System.out.println(file);
+    }
+
+    @Test
+    public void makeTransUtilsTest() {
+        String file = FireCodeUtils.makeTransUtils(table, author, module, basePackage, basePackage.replaceAll("\\.", "/"));
+        System.out.println(file);
+    }
+
 }

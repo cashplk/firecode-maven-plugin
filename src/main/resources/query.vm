@@ -1,6 +1,6 @@
 package ${base}#if("${module}"!="").${module}#end.model.query;
 
-import com.youzan.mei.common.model.BaseQuery;
+import ${base}#if("${module}"!="").${module}#end.model.BaseQuery;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,7 +13,7 @@ import lombok.Data;
 * Desc
 */
 @Data
-public class ${clazzName}Query extends BaseQuery implements Serializable {
+public class ${clazzName}Query extends BaseQuery {
 
 private static final long serialVersionUID = 1L;
 

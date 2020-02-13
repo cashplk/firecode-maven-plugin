@@ -1,0 +1,52 @@
+package ${base}#if("${module}"!="").${module}#end.model;
+
+/**
+* Created by ${author}
+* Time ${time}
+* Desc 服务排序规则枚举
+*/
+public enum OrderByColumnEnum {
+ID(1, "主键ID", "id"),
+CREATE_TIME(1, "创建时间", "create_time"),
+UPDATE_TIME(2, "结束时间", "update_time");
+
+private int value;
+
+private String name;
+
+private String columnName;
+
+
+OrderByColumnEnum(Integer value, String name, String columnName) {
+this.value = value;
+this.name = name;
+this.columnName = columnName;
+}
+
+
+/**
+* 按照Value获得枚举值
+*/
+public static OrderByColumnEnum valueOf(Integer value) {
+if (value != null) {
+for (OrderByColumnEnum orderbyColumnEnum : OrderByColumnEnum.values()) {
+if (orderbyColumnEnum.getValue() == value) {
+return orderbyColumnEnum;
+}
+}
+}
+return null;
+}
+
+public int getValue() {
+return value;
+}
+
+public String getName() {
+return name;
+}
+
+public String getColumnName() {
+return columnName;
+}
+}

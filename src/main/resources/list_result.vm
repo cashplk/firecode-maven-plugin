@@ -1,0 +1,27 @@
+package ${base}#if("${module}"!="").${module}#end.model;
+
+import java.io.Serializable;
+import lombok.Data;
+import java.util.List;
+
+/**
+* Created by ${author}
+* Time ${time}
+* Desc
+*/
+@Data
+public class ListResult
+<T> implements Serializable {
+
+    private Integer count;
+
+    private List
+    <T> data;
+
+        private Integer code;
+
+        private boolean success;
+
+        private String message;
+
+        }

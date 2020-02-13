@@ -55,8 +55,25 @@ public class FileUtil {
             logger.debug("文件 " + fileName + " 写入失败! " + e.getMessage());
         }
     }
-    
-    
+
+    /**
+     * 写入文件，如果存在，那么删除
+     */
+    public static void writeIfExistToFile(String fileName, String content) {
+        try {
+            // 删除
+            deleteFile(fileName);
+            // 新建文件
+            createFile(fileName);
+            FileUtils.write(new File(fileName), content, "utf-8", false);
+            logger.debug("文件 " + fileName + " 写入成功!");
+        } catch (IOException e) {
+            logger.debug("文件 " + fileName + " 写入失败! " + e.getMessage());
+        }
+
+    }
+
+
     /**
      * 创建单个文件
      *

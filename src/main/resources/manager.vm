@@ -1,11 +1,10 @@
 package ${base}#if("${module}"!="").${module}#end.manager;
 
 
-import ${base}#if("${module}"!="").${module}#end.model.param.${clazzName}CreateParam;
-import ${base}#if("${module}"!="").${module}#end.model.param.${clazzName}UpdateParam;
-import ${base}#if("${module}"!="").${module}#end.model.query.${clazzName}GetQuery;
-import ${base}#if("${module}"!="").${module}#end.model.query.${clazzName}SearchQuery;
-import ${base}#if("${module}"!="").${module}#end.model.dto.${clazzName}DTO;
+import ${base}#if("${module}"!="").${module}#end.model.param.Create${clazzName}Param;
+import ${base}#if("${module}"!="").${module}#end.model.param.Update${clazzName}Param;
+import ${base}#if("${module}"!="").${module}#end.model.query.${clazzName}Query;
+import ${base}#if("${module}"!="").${module}#end.model.dos.${clazzName}DO;
 
 import java.util.List;
 
@@ -18,36 +17,37 @@ public interface ${clazzName}Manager {
 
 /**
 * 新增
-* @param ${javaName}CreateParam
+* @param ${javaName}DO
 * @return
 */
-Long create${clazzName}(${clazzName}CreateParam ${javaName}CreateParam);
+Long create${clazzName}(Create${clazzName}DO ${javaName}DO);
 
 /**
 * 查询
-* @param ${javaName}GetQuery
+* @param ${javaName}Query
 * @return
 */
-${clazzName}DTO get${clazzName}(${clazzName}GetQuery ${javaName}GetQuery);
+${clazzName}DO get${clazzName}(${clazzName}Query ${javaName}Query);
 
 /**
 * 更新
-* @param ${javaName}UpdateParam
+* @param update${clazzName}Param
 * @return
 */
-int update${clazzName}(${clazzName}UpdateParam ${javaName}UpdateParam);
+int update${clazzName}(Update${clazzName}Param update${clazzName}Param);
 
 /**
 * count
-* @param ${javaName}SearchQuery
+* @param ${javaName}Query
 * @return
 */
-int count${clazzName}(${clazzName}SearchQuery ${javaName}SearchQuery);
+int count${clazzName}(${clazzName}Query ${javaName}Query);
 
 /**
 * 列表查询
-* @param ${javaName}SearchQuery
+* @param ${javaName}Query
 * @return
 */
-List<${clazzName}DTO> list${clazzName}(${clazzName}SearchQuery ${javaName}SearchQuery);
-}
+List
+<${clazzName}DO> list${clazzName}(${clazzName}Query ${javaName}Query);
+    }

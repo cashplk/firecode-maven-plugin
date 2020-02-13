@@ -1,6 +1,6 @@
 package ${base}#if("${module}"!="").${module}#end.model.param;
 
-import com.youzan.mei.common.model.BaseParam;
+import ${base}#if("${module}"!="").${module}#end.model.BaseParam;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -13,14 +13,14 @@ import lombok.ToString;
 */
 @Data
 @ToString(callSuper = true)
-public class ${clazzName}UpdateParam extends BaseParam implements Serializable {
+public class Update${clazzName}Param extends BaseParam{
 
 private static final long serialVersionUID = 1L;
 
 #foreach($entry in $columnMap.entrySet())
     #set($column=$entry.value)
     #if("${column.javaName}"!="kdtId" && "${column.javaName}"!="deptId" )
-        private ${column.simpleClazz} ${column.javaName};     //${column.comment}
+    private ${column.simpleClazz} ${column.javaName};     //${column.comment}
     #end
 
 #end

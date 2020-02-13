@@ -1,7 +1,5 @@
 package ${base}#if("${module}"!="").${module}#end.model.dto;
 
-import com.youzan.mei.common.model.BaseDTO;
-
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -14,7 +12,7 @@ import lombok.ToString;
 */
 @Data
 @ToString(callSuper = true)
-public class ${clazzName}DTO extends BaseDTO implements Serializable {
+public class ${clazzName}DTO implements Serializable {
 
 private static final long serialVersionUID = 1L;
 

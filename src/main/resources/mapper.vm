@@ -1,10 +1,10 @@
-package ${base}#if("${module}"!="").${module}#end.dal.mapper;
+package ${base}#if("${module}"!="").${module}#end.mapper;
 
 
-import ${base}#if("${module}"!="").${module}#end.dal.dataobject.${clazzName}DO;
-import ${base}#if("${module}"!="").${module}#end.model.param.${clazzName}UpdateParam;
-import ${base}#if("${module}"!="").${module}#end.model.query.${clazzName}GetQuery;
-import ${base}#if("${module}"!="").${module}#end.model.query.${clazzName}SearchQuery;
+import ${base}#if("${module}"!="").${module}#end.model.dos.${clazzName}DO;
+import ${base}#if("${module}"!="").${module}#end.model.param.Update${clazzName}Param;
+
+import ${base}#if("${module}"!="").${module}#end.model.query.${clazzName}Query;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -22,36 +22,37 @@ public interface ${clazzName}Mapper {
 
 /**
 * 查询
-* @param ${javaName}GetQuery
+* @param ${javaName}Query
 * @return
 */
-${clazzName}DO get${clazzName}(${clazzName}GetQuery ${javaName}GetQuery);
+${clazzName}DO get${clazzName}(${clazzName}Query ${javaName}Query);
 
 /**
 * COUNT
-* @param ${javaName}SearchQuery
+* @param ${javaName}Query
 * @return
 */
-int count${clazzName}(${clazzName}SearchQuery ${javaName}SearchQuery);
+int count${clazzName}(${clazzName}Query ${javaName}Query);
 
 /**
 * 查询列表
-* @param ${javaName}SearchQuery
+* @param ${javaName}Query
 * @return
 */
-List<${clazzName}DO> list${clazzName}(${clazzName}SearchQuery ${javaName}SearchQuery);
+List
+<${clazzName}DO> list${clazzName}(${clazzName}Query ${javaName}Query);
 
-/**
-* 新增
-* @param ${javaName}DO
-* @return
-*/
-int insert${clazzName}(${clazzName}DO ${javaName}DO);
+    /**
+    * 新增
+    * @param ${javaName}DO
+    * @return
+    */
+    int insert${clazzName}(${clazzName}DO ${javaName}DO);
 
-/**
-* 更新
-* @param ${javaName}UpdateParam
-* @return
-*/
-int update${clazzName}(${clazzName}UpdateParam ${javaName}UpdateParam);
-}
+    /**
+    * 更新
+    * @param update${clazzName}Param
+    * @return
+    */
+    int update${clazzName}(Update${clazzName}Param update${clazzName}Param);
+    }

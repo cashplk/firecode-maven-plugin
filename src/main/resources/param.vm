@@ -1,6 +1,6 @@
 package ${base}#if("${module}"!="").${module}#end.model.param;
 
-import com.youzan.mei.common.model.BaseParam;
+import ${base}#if("${module}"!="").${module}#end.model.BaseParam;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
