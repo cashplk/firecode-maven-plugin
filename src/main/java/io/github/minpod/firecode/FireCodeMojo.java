@@ -2,7 +2,6 @@ package io.github.minpod.firecode;
 
 import io.github.minpod.firecode.database.MetaUtil;
 import io.github.minpod.firecode.database.Table;
-
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -11,10 +10,9 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 
-import java.io.File;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
+import java.io.File;
 
 
 /**
@@ -56,17 +54,26 @@ public class FireCodeMojo extends AbstractMojo {
             //test
             String testDalFile = FireCodeUtils.makeTest(table, author, module, basePackage, baseDir);
             getLog().info("create file " + testDalFile);
-            
+
             //tran
             String transFile = FireCodeUtils.makeTransUtils(table, author, module, basePackage, baseDir);
             getLog().info("create file " + transFile);
-            
+
+
+            // query
+            String queryFile = FireCodeUtils.makeQuery(table, author, module, basePackage, baseDir);
+            getLog().info("create file " + queryFile);
+            //            String getFile = FireCodeUtils.makeGet(table, author, module, basePackage, baseDir);
+//            getLog().info("create file " + getFile);
+//
+//            String searchFile = FireCodeUtils.makeSearch(table, author, module, basePackage, baseDir);
+//            getLog().info("create file " + searchFile);
+
+
             /*if (config.getDto()) {
                 String dtoFile = FireCodeUtils.makeDTO(table, author, module, basePackage, baseDir);
                 getLog().info("create file " + dtoFile);
             }
-            String queryFile = FireCodeUtils.makeQuery(table, author, module, basePackage, baseDir);
-            getLog().info("create file " + queryFile);
             String paramFile = FireCodeUtils.makeParam(table, author, module, basePackage, baseDir);
             getLog().info("create file " + paramFile);*/
             String createFile = FireCodeUtils.makeCreate(table, author, module, basePackage, baseDir);
@@ -74,13 +81,8 @@ public class FireCodeMojo extends AbstractMojo {
     
             String updateFile = FireCodeUtils.makeUpdate(table, author, module, basePackage, baseDir);
             getLog().info("create file " + updateFile);
-    
-            String getFile = FireCodeUtils.makeGet(table, author, module, basePackage, baseDir);
-            getLog().info("create file " + getFile);
-    
-            String searchFile = FireCodeUtils.makeSearch(table, author, module, basePackage, baseDir);
-            getLog().info("create file " + searchFile);
-    
+
+
             String respFile = FireCodeUtils.makeResp(table, author, module, basePackage, baseDir);
             getLog().info("create file " + respFile);
             

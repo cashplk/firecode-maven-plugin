@@ -69,10 +69,15 @@ public class FireCodeUtils {
 
     // Query
     public static String makeQuery(Table table, String author, String module, String basePackage, String baseDir) {
-        // 1,生成baseQuery
+        // 1，初始化 OrderByColumnEnum
+        String file = PathUtil.getJavaPath() + File.separator + baseDir + File.separator + module + File.separator + "model" + File.separator + "OrderByColumnEnum.java";
+        String code = VelocityUtil.make(author, basePackage, module, table, "order_by_column_enum.vm");
+        FileUtil.writeIfExistToFile(file, code);
+
+        // 2,生成baseQuery
         // com.youzan.mei.demo.model.BaseQuery
-        String file = PathUtil.getJavaPath() + File.separator + baseDir + File.separator + module + File.separator + "model" + File.separator + "BaseQuery.java";
-        String code = VelocityUtil.make(author, basePackage, module, table, "base_query.vm");
+        file = PathUtil.getJavaPath() + File.separator + baseDir + File.separator + module + File.separator + "model" + File.separator + "BaseQuery.java";
+        code = VelocityUtil.make(author, basePackage, module, table, "base_query.vm");
         FileUtil.writeIfExistToFile(file, code);
 
         String query = File.separator + "model" + File.separator + "query" + File.separator;
